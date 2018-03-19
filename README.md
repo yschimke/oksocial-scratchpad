@@ -46,6 +46,10 @@ $ ./src/main/kotlin/commands/tweetsearch.kts peace
 
 ### Extension and Top Level Functions
 
+arguments - command line arguments
+client - OkHttpClient instance configured with built in authentication support for many services
+request - request builder function
+
 https://github.com/yschimke/oksocial/blob/master/src/main/kotlin/com/baulsupp/oksocial/kotlin/kotlin.kt
 https://github.com/yschimke/oksocial/blob/master/src/main/kotlin/com/baulsupp/oksocial/kotlin/io.kt
 https://github.com/yschimke/oksocial/blob/master/src/main/kotlin/com/baulsupp/oksocial/kotlin/OkShell.kt
