@@ -11,7 +11,7 @@ $ git clone https://github.com/yschimke/oksocial-scratchpad
 $ ./src/main/kotlin/commands/giphysearch.kts peace
 ```
 
-![Giphy Example](https://media.giphy.com/media/2t9vw2YQroJdS7VfyH/giphy.gif])
+![Giphy Example](https://media.giphy.com/media/2t9vw2YQroJdS7VfyH/giphy.gif)
 
 ### Authentication Support 
 
