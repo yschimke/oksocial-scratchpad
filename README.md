@@ -13,6 +13,24 @@ $ ./src/main/kotlin/commands/giphysearch.kts peace
 
 ![Giphy Example](https://media.giphy.com/media/2t9vw2YQroJdS7VfyH/giphy.gif)
 
+https://github.com/yschimke/oksocial-scratchpad/blob/master/src/main/kotlin/commands/giphysearch.kts
+
+```
+  val urls = client.query<SearchResults>(
+    "https://api.giphy.com/v1/gifs/search?q=" + arguments.joinToString(
+      "+")).data.mapNotNull { it.images[size]?.url }
+
+  val fetches = urls.map {
+    async {
+      client.execute(request(it))
+    }
+  }
+
+  fetches.forEach {
+    showOutput(it.await())
+  }
+```  
+
 ### Authentication Support 
 
 ```
