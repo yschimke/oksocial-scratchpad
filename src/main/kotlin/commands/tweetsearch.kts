@@ -29,8 +29,7 @@ runBlocking {
     println("%-20s: %s".format(tweet.user.screen_name, tweet.full_text))
 
     images[tweet.id_str]?.forEach {
-      okshell.commandLine.outputHandler.showOutput(it.await())
-//      showOutput(it.await())
+      showOutput(it.await())
       println()
     }
   }

@@ -24,7 +24,6 @@ runBlocking {
   }
 
   fetches.forEach {
-    okshell.commandLine.outputHandler.showOutput(it.await())
-//    showOutput(it.await())
+    showOutput(it.await())
   }
 }
