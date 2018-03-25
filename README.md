@@ -11,6 +11,32 @@ $ git clone https://github.com/yschimke/oksocial-scratchpad
 $ ./src/main/kotlin/commands/giphysearch.kts peace
 ```
 
+![Giphy Example](https://media.giphy.com/media/2t9vw2YQroJdS7VfyH/giphy.gif)
+
+https://github.com/yschimke/oksocial-scratchpad/blob/master/src/main/kotlin/commands/giphysearch.kts
+
+```
+data class Image(val url: String?, val width: String?, val height: String?, val size: String?, val mp4: String?, val mp4_size: String?, val webp: String?, val webp_size: String?)
+data class ImageResult(val type: String, val id: String, val url: String, val images: Map<String, Image>)
+data class SearchResults(val data: List<ImageResult>, val pagination: Pagination, val meta: Meta)
+
+...
+
+  val urls = client.query<SearchResults>(
+    "https://api.giphy.com/v1/gifs/search?q=" + arguments.joinToString(
+      "+")).data.mapNotNull { it.images[size]?.url }
+
+  val fetches = urls.map {
+    async {
+      client.execute(request(it))
+    }
+  }
+
+  fetches.forEach {
+    showOutput(it.await())
+  }
+```  
+
 ### Authentication Support 
 
 ```
@@ -19,6 +45,10 @@ $ ./src/main/kotlin/commands/tweetsearch.kts peace
 ```
 
 ### Extension and Top Level Functions
+
+- arguments - command line arguments
+- client - OkHttpClient instance configured with built in authentication support for many services
+- request - request builder function
 
 https://github.com/yschimke/oksocial/blob/master/src/main/kotlin/com/baulsupp/oksocial/kotlin/kotlin.kt
 https://github.com/yschimke/oksocial/blob/master/src/main/kotlin/com/baulsupp/oksocial/kotlin/io.kt
