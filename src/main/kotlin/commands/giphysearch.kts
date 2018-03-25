@@ -1,4 +1,5 @@
-#!/usr/bin/env okscript
+#!/usr/bin/env kscript
+//DEPS com.baulsupp:oksocial:1.37.0
 
 import com.baulsupp.oksocial.kotlin.*
 import kotlinx.coroutines.experimental.async
