@@ -1,7 +1,7 @@
 # oksocial-scratchpad
 
 ```
-$ brew install yschimke/tap/oksocial
+$ brew install holgerbrandl/tap/kscript
 $ git clone https://github.com/yschimke/oksocial-scratchpad
 ```
 
